@@ -37,7 +37,8 @@ function draw()
 
 function loop()
 {
-	for( var i=0; i<bots.length; i++ )
+	(function checkbots() {
+        for( var i=0; i<bots.length; i++ )
 	{
 		if( bots[i].alife == false )
 		{
@@ -54,7 +55,9 @@ function loop()
 			bots[i].step();
 		}
 	}
+        })();
 
+        (function checkfood() {
 	for( var i=0; i<food.length; i++ )
 	{
 		if(food[i].alife == false )
@@ -67,6 +70,7 @@ function loop()
 			food[i].step();
 		}
 	}
+        })();
 
 	if( bots.length < 5 )
 		bots.push( new neurobot( worldsize*2.0*(Math.random()-0.5), worldsize*2.0*(Math.random()-0.5), Math.PI*2*Math.random() ) );
