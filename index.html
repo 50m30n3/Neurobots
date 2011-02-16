@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Neurobots</title>
+		<script type="text/javascript" src="neurobot.js"></script>
+		<script type="text/javascript" src="plant.js"></script>
+		<script type="text/javascript" src="stats.js"></script>
+		<script type="text/javascript" src="input.js"></script>
+		<script type="text/javascript" src="sim.js"></script>
+	</head>
+
+	<body onload="init();" style="font-family:sans-serif">
+
+		<h1>Neurobots</h1>
+
+		<div style="width:1225px">
+
+			<div style="float:left;width:820px;">
+				<canvas id="canvas" width="800" height="600"></canvas>
+			</div>
+
+			<div>
+				<p>
+					<input type="button" value="Start" id="startbutton" onclick="startsim();" disabled>
+					<input type="button" value="Stop" id="stopbutton" onclick="stopsim();">
+					<input type="button" value="Reset" onclick="resetsim();">
+					<input type="button" value="Reset Camera" onclick="resetcam();">
+					FPS:</td><td><span id="fpsspan">0</span>
+				</p>
+
+				<span id="worldopts">
+					<p><small>
+						This program simulates small robots, each one is controlled by a recurrent artificial neural network.<br>
+						They scan their surrounding using low resolution ray casting and this data is fed into the first layer of their neural network.<br>
+						The output layer of the neural network controls their movement.<br>
+						Moving decreases the robots power level, when they run out they die. Eating dots gives them new energy.
+						When they have enough energy they divide. Since the new bot is not an exact copy, they will slowly evolve. Just give it some time.<br>
+					</small></p>
+					
+					<h2>Options</h2>
+					<table>
+						<tr>
+							<td><label for="bdepthbox" title="Number of layers in the neural network">Brain size:</label></td>
+							<td><input type="number" min="2" max="16" value="4" id="bdepthbox"></td>
+						</tr>
+						<tr>
+							<td><label for="bsizebox" title="Number of neurons in each layer">Brain complexity:</label></td>
+							<td><input type="number" min="4" max="16" step="2" value="8" id="bsizebox"></td>
+						</tr>
+						<tr>
+							<td><label for="foodratebox">Food respawn delay:</label></td>
+							<td><input type="number" min="5" max="50" value="10" id="foodratebox" onchange="foodratechange(this.value)"></td>
+						</tr>
+					</table>
+					
+					<h2>Tools</h2>
+					<input type="button" value="Add new bot" onclick="addbot();">
+					<input type="button" value="Select newest bot" onclick="selnewest();">
+					<input type="button" value="Select best bot" onclick="selbest();"><br>
+				</span>
+
+				<span id="botstats" style="display:none">
+					<div>
+						<h2>Bot info</h2>
+						<div style="float:right">
+							<p style="margin-bottom:0;margin-top:0;"><small>Brain activity:</small></p>
+							<canvas id="brain" width="160" height="160"></canvas>
+						</div>
+						<div>
+							<table>
+								<tr><td>Generation:</td><td><span id="botgenspan">0</span></td></tr>
+								<tr><td>Age:</td><td><span id="botagespan">0</span>/10000</td></tr>
+								<tr><td>Food level:</td><td><span id="botfoodspan">0</span>/1000</td></tr>
+								<tr><td>Brain size:</td><td><span id="botdepthspan">0</span></td></tr>
+								<tr><td>Brain complexity:</td><td><span id="botsizespan">0</span></td></tr>
+								<tr><td>Mutation rate:</td><td><span id="botratespan">0</span></td></tr>
+								<tr><td>Children:</td><td><span id="botchildspan">0</span></td></tr>
+								<tr><td>Dots eaten:</td><td><span id="botdotsspan">0</span></td></tr>
+							</table>
+						</div>
+					</div>
+
+					<h2>Brain data</h2>
+					<p>
+						<textarea id="braindata" cols="45" rows="10" wrap="off"></textarea><br>
+						<input type="button" value="Inject!" onclick="injectbrain();">
+						<input type="button" value="Save" onclick="savebrain();">
+						<input id="deletebutton" type="button" value="Delete" onclick="deletebrain()" disabled>
+						<select id="savename" onchange="listselect( this.value )" disabled><option value="">No saved brains</option></select>
+					</p>
+				</span>
+			</div>
+		</div>
+
+		<div style="clear:both;">
+			<div style="float:left;width:510px;">
+				<canvas id="stats" width="500" height="102"></canvas><br>
+				<small>
+					<span style="color:#FF0000">Population</span> | 
+					<span style="color:#00FF00">Food</span> | 
+					<span style="color:#0000FF">Age</span> | 
+					<span style="color:#000000">Mutation rate</span>
+				</small>
+			</div>
+
+			<div>
+				<p>
+					<table>
+						<tr><td>Population:</td><td><span id="popspan">0</span></td></tr>
+						<tr><td>Food count:</td><td><span id="foodspan">0</span></td></tr>
+						<tr><td>Average age:</td><td><span id="agespan">0</span></td></tr>
+						<tr><td>Avg. mutation rate:</td><td><span id="ratespan">0</span></td></tr>
+					</table>
+				</p>
+			</div>
+		</div>
+
+		<div style="clear:both;padding-top:0.25em;">
+			<p>Neurobots v.1.5.2 by 50m30n3 - <a href="./../">Index</a> - <a href="./help.html" target="_blank">Help</a></p>
+		</div>
+
+	</body>
+</html>
+
