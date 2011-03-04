@@ -137,11 +137,11 @@ function addbot()
 	}
 	
 	value = parseInt( document.getElementById( "bsizebox" ).value );
-	if( ( value <= 16 ) && ( value >= 4 ) && ( value%2 == 0 ) )
+	if( ( value <= 16 ) && ( value >= 4 ) && ( value%4 == 0 ) )
 		brainsize = value;
 	else
 	{
-		alert( "Brain complexity out of range (4-16) or not a multiple of 2" );
+		alert( "Brain complexity out of range (4-16) or not a multiple of 4" );
 		return;
 	}
 
