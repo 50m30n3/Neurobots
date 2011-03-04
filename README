@@ -2,7 +2,23 @@ Neurobots by 50m30n3
 
 http://d00m.org/~someone/neurobots/
 
-All code licensed under GPL V3.0
+This program simulates small robots,
+each one is controlled by a recurrent artificial neural network.
 
-This program simulates small robots, each one is controlled by a recurrent artificial neural network.
+It was tested in Firefox 3.6, Firefox 4 and Chromium 9,
+but it should work in any browser that supports the canvas tag.
+
+
+Neurobots is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Neurobots is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with beurobots.  If not, see <http://www.gnu.org/licenses/>.
 
