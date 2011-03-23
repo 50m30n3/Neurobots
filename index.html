@@ -25,10 +25,10 @@
 					<input type="button" value="Stop" id="stopbutton" onclick="stopsim();">
 					<input type="button" value="Reset" onclick="resetsim();">
 					<input type="button" value="Reset Camera" onclick="resetcam();">
-					FPS:</td><td><span id="fpsspan">0</span>
+					FPS:<span id="fpsspan">0</span>
 				</p>
 
-				<span id="worldopts">
+				<div id="worldopts">
 					<p><small>
 						This program simulates small robots, each one is controlled by a recurrent artificial neural network.<br>
 						They scan their surrounding using low resolution ray casting and this data is fed into the first layer of their neural network.<br>
@@ -57,9 +57,9 @@
 					<input type="button" value="Add new bot" onclick="addbot();">
 					<input type="button" value="Select newest bot" onclick="selnewest();">
 					<input type="button" value="Select best bot" onclick="selbest();"><br>
-				</span>
+				</div>
 
-				<span id="botstats" style="display:none">
+				<div id="botstats" style="display:none">
 					<div>
 						<h2>Bot info</h2>
 						<div style="float:right">
@@ -82,13 +82,13 @@
 
 					<h2>Brain data</h2>
 					<p>
-						<textarea id="braindata" cols="45" rows="10" wrap="off"></textarea><br>
+						<textarea id="braindata" cols="45" rows="10" wrap="soft"></textarea><br>
 						<input type="button" value="Inject!" onclick="injectbrain();">
 						<input type="button" value="Save" onclick="savebrain();">
 						<input id="deletebutton" type="button" value="Delete" onclick="deletebrain()" disabled>
 						<select id="savename" onchange="listselect( this.value )" disabled><option value="">No saved brains</option></select>
 					</p>
-				</span>
+				</div>
 			</div>
 		</div>
 
@@ -104,14 +104,12 @@
 			</div>
 
 			<div>
-				<p>
-					<table>
-						<tr><td>Population:</td><td><span id="popspan">0</span></td></tr>
-						<tr><td>Food count:</td><td><span id="foodspan">0</span></td></tr>
-						<tr><td>Average age:</td><td><span id="agespan">0</span></td></tr>
-						<tr><td>Avg. mutation rate:</td><td><span id="ratespan">0</span></td></tr>
-					</table>
-				</p>
+				<table>
+					<tr><td>Population:</td><td><span id="popspan">0</span></td></tr>
+					<tr><td>Food count:</td><td><span id="foodspan">0</span></td></tr>
+					<tr><td>Average age:</td><td><span id="agespan">0</span></td></tr>
+					<tr><td>Avg. mutation rate:</td><td><span id="ratespan">0</span></td></tr>
+				</table>
 			</div>
 		</div>
 
