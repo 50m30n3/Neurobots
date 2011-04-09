@@ -3,7 +3,12 @@ var lastx, lasty;
 
 function wheelzoom( event )
 {
-	if( event.wheelDelta < 0 )
+	if( event.detail )
+		delta = -event.detail;
+	else
+		delta = event.wheelDelta;
+
+	if( delta < 0 )
 		zoom *= 1.1;
 	else
 		zoom *= 0.9;

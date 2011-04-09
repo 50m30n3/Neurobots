@@ -157,6 +157,9 @@ function init()
 		document.onmouseup = mouse_up;
 		document.onmousemove = movecam;
 
+		if( canvas.addEventListener )
+			canvas.addEventListener( 'DOMMouseScroll', wheelzoom, false );
+
 		resetsim();
 
 		fooddelay = 0;
