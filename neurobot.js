@@ -62,7 +62,7 @@ function neurobot( x, y, rot, parent )
 	this.generation;
 	this.color = {};
 	
-	this.vision = new Array();
+	this.vision = [];
 
 	if( ! parent )
 	{
@@ -103,10 +103,10 @@ function neurobot( x, y, rot, parent )
 		if( this.color.b < 0 ) this.color.b = 0;
 	}
 
-	this.neurons = new Array();
+	this.neurons = [];
 	for( var i=0; i<this.braindepth; i++ )
 	{
-		this.neurons[i] = new Array();
+		this.neurons[i] = [];
 	}
 
 	if( ! parent )
@@ -116,8 +116,8 @@ function neurobot( x, y, rot, parent )
 			for( var y=0; y<this.brainsize; y++ )
 			{
 				this.neurons[x][y] = {};
-				this.neurons[x][y].inputweights = new Array();
-				this.neurons[x][y].feedbackweights = new Array();
+				this.neurons[x][y].inputweights = [];
+				this.neurons[x][y].feedbackweights = [];
 				this.neurons[x][y].activation = 0.0;
 				this.neurons[x][y].nextact = 0.0;
 
@@ -149,8 +149,8 @@ function neurobot( x, y, rot, parent )
 			for( var y=0; y<this.brainsize; y++ )
 			{
 				this.neurons[x][y] = {};
-				this.neurons[x][y].inputweights = new Array();
-				this.neurons[x][y].feedbackweights = new Array();
+				this.neurons[x][y].inputweights = [];
+				this.neurons[x][y].feedbackweights = [];
 				this.neurons[x][y].activation = 0.0;
 				this.neurons[x][y].nextact = 0.0;
 
@@ -469,10 +469,10 @@ function neurobot( x, y, rot, parent )
 		if( data.length-1 != this.braindepth )
 			result = { success:false, msg:"Corrupted brain data" };
 
-		this.neurons = new Array();
+		this.neurons = [];
 		for( var i=0; i<this.braindepth; i++ )
 		{
-			this.neurons[i] = new Array();
+			this.neurons[i] = [];
 		}
 
 		for( var x=0; x<this.braindepth; x++ )
@@ -484,8 +484,8 @@ function neurobot( x, y, rot, parent )
 			for( var y=0; y<this.brainsize; y++ )
 			{
 				this.neurons[x][y] = {};
-				this.neurons[x][y].inputweights = new Array();
-				this.neurons[x][y].feedbackweights = new Array();
+				this.neurons[x][y].inputweights = [];
+				this.neurons[x][y].feedbackweights = [];
 				this.neurons[x][y].activation = 0.0;
 				this.neurons[x][y].nextact = 0.0;
 

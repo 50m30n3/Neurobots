@@ -121,11 +121,11 @@ function resetsim()
 		return;
 	}
 
-	bots = new Array();
+	bots = [];
 	for( var i=0; i<25; i++ )
 		bots.push( new neurobot( worldsize*2.0*(Math.random()-0.5), worldsize*2.0*(Math.random()-0.5), Math.PI*2*Math.random() ) );
 
-	food = new Array();
+	food = [];
 	for( var i=0; i<200; i++ )
 	{
 		var ang = Math.PI*2*Math.random();

@@ -4,7 +4,7 @@ var fps, smoothfps = 0;
 
 var selected;
 
-var stats = new Array();
+var stats = [];
 
 function botstats( braindump )
 {
