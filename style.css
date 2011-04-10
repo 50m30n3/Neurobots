@@ -11,17 +11,12 @@ h1
 div#sidepane
 {
 	float:right;
-	width:25em;
+	width:400px;
 }
 
 div#brainscan
 {
 	float:right;
-}
-
-div#container
-{
-	margin-right:25em;
 }
 
 div#statistics
