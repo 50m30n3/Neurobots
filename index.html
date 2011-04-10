@@ -13,13 +13,8 @@
 
 		<h1>Neurobots</h1>
 
-		<div style="width:1225px">
-
-			<div style="float:left;width:820px;">
-				<canvas id="canvas" width="800" height="600"></canvas>
-			</div>
-
-			<div>
+		<div>
+			<div style="float:right;width:400px;">
 				<p>
 					<input type="button" value="Start" id="startbutton" onclick="startsim();" disabled>
 					<input type="button" value="Stop" id="stopbutton" onclick="stopsim();">
@@ -36,7 +31,7 @@
 						Moving decreases the robots power level, when they run out they die. Eating dots gives them new energy.
 						When they have enough energy they divide. Since the new bot is not an exact copy, they will slowly evolve. Just give it some time.<br>
 					</small></p>
-					
+				
 					<h2>Options</h2>
 					<table>
 						<tr>
@@ -52,7 +47,7 @@
 							<td><input type="number" min="5" max="50" value="10" id="foodratebox" onchange="foodratechange(this.value)"></td>
 						</tr>
 					</table>
-					
+				
 					<h2>Tools</h2>
 					<input type="button" value="Add new bot" onclick="addbot();">
 					<input type="button" value="Select newest bot" onclick="selnewest();">
@@ -63,7 +58,6 @@
 					<div>
 						<h2>Bot info</h2>
 						<div style="float:right">
-							<p style="margin-bottom:0;margin-top:0;"><small>Brain activity:</small></p>
 							<canvas id="brain" width="160" height="160"></canvas>
 						</div>
 						<div>
@@ -82,7 +76,7 @@
 
 					<h2>Brain data</h2>
 					<p>
-						<textarea id="braindata" cols="45" rows="10" wrap="off"></textarea><br>
+						<textarea id="braindata" rows="10" wrap="off" style="width:99%"></textarea><br>
 						<input type="button" value="Inject!" onclick="injectbrain();">
 						<input type="button" value="Save" onclick="savebrain();">
 						<input id="deletebutton" type="button" value="Delete" onclick="deletebrain()" disabled>
@@ -90,6 +84,11 @@
 					</p>
 				</div>
 			</div>
+
+			<div id="canvas_cont" style="margin-right:400px;">
+				<canvas id="canvas" width="800" height="600"></canvas>
+			</div>
+
 		</div>
 
 		<div style="clear:both;">

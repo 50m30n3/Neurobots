@@ -44,6 +44,18 @@ function movecam( event )
 		draw();
 }
 
+function winresize( event )
+{
+	var canvas = document.getElementById( "canvas" );
+	var container = document.getElementById( "canvas_cont" );
+
+	var width = container.clientWidth-25;
+	var aspect = window.innerWidth/window.innerHeight;
+	
+	canvas.width = width;
+	canvas.height = width/aspect;
+}
+
 function mouse_down( event )
 {
 	if( event.button != 1 ) return;
@@ -64,8 +76,8 @@ function mouse_click( event )
 	{
 		var x = event.pageX-event.target.offsetLeft;
 		var y = event.pageY-event.target.offsetTop;
-		var cx = (x-400)/zoom-camx;
-		var cy = (y-300)/zoom-camy;
+		var cx = (x-ctx.canvas.width/2)/zoom-camx;
+		var cy = (y-ctx.canvas.height/2)/zoom-camy;
 
 		var smallest = worldsize*2;
 		var sel = -1;

@@ -17,9 +17,9 @@ function draw()
 {
 	ctx.save();
 	ctx.fillStyle = "rgb( 70, 80, 60 )"
-	ctx.fillRect( 0, 0, 800, 600 );
+	ctx.fillRect( 0, 0, ctx.canvas.width, ctx.canvas.height );
 	
-	ctx.translate( 400, 300 );
+	ctx.translate( ctx.canvas.width/2, ctx.canvas.height/2 );
 	ctx.scale( zoom, zoom );
 	ctx.translate( camx, camy );
 
@@ -144,6 +144,8 @@ function init()
 {
 	var canvas = document.getElementById( "canvas" );
 
+	winresize();
+
 	if( canvas.getContext )
 	{
 		ctx = canvas.getContext( "2d" );
@@ -156,6 +158,7 @@ function init()
 		canvas.onclick = mouse_click;
 		document.onmouseup = mouse_up;
 		document.onmousemove = movecam;
+		window.onresize = winresize;
 
 		if( canvas.addEventListener )
 			canvas.addEventListener( 'DOMMouseScroll', wheelzoom, false );
