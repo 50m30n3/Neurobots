@@ -12,6 +12,7 @@ div#sidepane
 {
 	float:right;
 	width:400px;
+	padding-right:10px;
 }
 
 div#brainscan
@@ -38,5 +39,5 @@ div#footer
 
 textarea#braindata
 {
-	width:99%;
+	width:100%;
 }
