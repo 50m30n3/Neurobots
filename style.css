@@ -1,0 +1,47 @@
+body
+{
+	font-family:sans-serif;
+}
+
+h1
+{
+	margin-top:0;
+}
+
+div#sidepane
+{
+	float:right;
+	width:25em;
+}
+
+div#brainscan
+{
+	float:right;
+}
+
+div#container
+{
+	margin-right:25em;
+}
+
+div#statistics
+{
+	clear:both;
+}
+
+div#diagram
+{
+	float:left;
+	width:510px;
+}
+
+div#footer
+{
+	clear:both;
+	padding-top:0.25em;
+}
+
+textarea#braindata
+{
+	width:99%;
+}

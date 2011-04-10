@@ -47,11 +47,11 @@ function movecam( event )
 function winresize( event )
 {
 	var canvas = document.getElementById( "canvas" );
-	var container = document.getElementById( "canvas_cont" );
+	var container = document.getElementById( "container" );
 
-	var width = container.clientWidth-25;
+	var width = container.clientWidth-10;
 	var aspect = window.innerWidth/window.innerHeight;
-	
+
 	canvas.width = width;
 	canvas.height = width/aspect;
 }

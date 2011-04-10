@@ -144,8 +144,6 @@ function init()
 {
 	var canvas = document.getElementById( "canvas" );
 
-	winresize();
-
 	if( canvas.getContext )
 	{
 		ctx = canvas.getContext( "2d" );
@@ -159,6 +157,8 @@ function init()
 		document.onmouseup = mouse_up;
 		document.onmousemove = movecam;
 		window.onresize = winresize;
+		
+		winresize();
 
 		if( canvas.addEventListener )
 			canvas.addEventListener( 'DOMMouseScroll', wheelzoom, false );

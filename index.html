@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Neurobots</title>
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 		<script type="text/javascript" src="neurobot.js"></script>
 		<script type="text/javascript" src="plant.js"></script>
 		<script type="text/javascript" src="stats.js"></script>
@@ -9,12 +10,12 @@
 		<script type="text/javascript" src="sim.js"></script>
 	</head>
 
-	<body onload="init();" style="font-family:sans-serif">
+	<body onload="init();">
 
 		<h1>Neurobots</h1>
 
 		<div>
-			<div style="float:right;width:400px;">
+			<div id="sidepane">
 				<p>
 					<input type="button" value="Start" id="startbutton" onclick="startsim();" disabled>
 					<input type="button" value="Stop" id="stopbutton" onclick="stopsim();">
@@ -57,7 +58,7 @@
 				<div id="botstats" style="display:none">
 					<div>
 						<h2>Bot info</h2>
-						<div style="float:right">
+						<div id="brainscan">
 							<canvas id="brain" width="160" height="160"></canvas>
 						</div>
 						<div>
@@ -76,7 +77,7 @@
 
 					<h2>Brain data</h2>
 					<p>
-						<textarea id="braindata" rows="10" wrap="off" style="width:99%"></textarea><br>
+						<textarea id="braindata" rows="10" wrap="off"></textarea><br>
 						<input type="button" value="Inject!" onclick="injectbrain();">
 						<input type="button" value="Save" onclick="savebrain();">
 						<input id="deletebutton" type="button" value="Delete" onclick="deletebrain()" disabled>
@@ -85,14 +86,14 @@
 				</div>
 			</div>
 
-			<div id="canvas_cont" style="margin-right:400px;">
+			<div id="container">
 				<canvas id="canvas" width="800" height="600"></canvas>
 			</div>
 
 		</div>
 
-		<div style="clear:both;">
-			<div style="float:left;width:510px;">
+		<div id="statistics">
+			<div id="diagram">
 				<canvas id="stats" width="500" height="102"></canvas><br>
 				<small>
 					<span style="color:#FF0000">Population</span> | 
@@ -112,7 +113,7 @@
 			</div>
 		</div>
 
-		<div style="clear:both;padding-top:0.25em;">
+		<div id="footer">
 			<p>Neurobots v.1.5.3 by 50m30n3 - <a href="./../">Index</a> - <a href="./help.html" target="_blank">Help</a> - <a href="https://github.com/50m30n3/Neurobots" target="_blank">Source on GitHub</a></p>
 		</div>
 
