@@ -8,6 +8,16 @@ h1
 	margin-top:0;
 }
 
+canvas#canvas
+{
+	width:100%;
+}
+
+div#container
+{
+	margin-right:420px;
+}
+
 div#sidepane
 {
 	float:right;

@@ -49,11 +49,13 @@ function winresize( event )
 	var canvas = document.getElementById( "canvas" );
 	var container = document.getElementById( "container" );
 
-	var width = container.clientWidth-425;
+	var width = canvas.clientWidth;
 	var aspect = window.innerWidth/window.innerHeight;
 
 	canvas.width = width;
 	canvas.height = width/aspect;
+	
+	draw();
 }
 
 function mouse_down( event )
