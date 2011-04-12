@@ -113,7 +113,7 @@ function do_stats()
 
 	sctx.beginPath();
 	for( var i in stats )
-		sctx.lineTo( 499-i, 101-(stats[i].population/((worldsize*worldsize)/15000)*100/2) );
+		sctx.lineTo( 499-i, 101-(stats[i].population/((worldsize*worldsize)/15000)*100/4) );
 	sctx.strokeStyle = "rgb( 255, 0, 0 )"	
 	sctx.stroke();
 	
