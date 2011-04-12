@@ -107,13 +107,13 @@ function do_stats()
 
 	sctx.beginPath();
 	for( var i in stats )
-		sctx.lineTo( 499-i, 101-stats[i].foodcount*0.5 );
+		sctx.lineTo( 499-i, 101-(stats[i].foodcount/((foodradius*foodradius)/2000)*100) );
 	sctx.strokeStyle = "rgb( 0, 255, 0 )"	
 	sctx.stroke();
 
 	sctx.beginPath();
 	for( var i in stats )
-		sctx.lineTo( 499-i, 101-stats[i].population*0.5 );
+		sctx.lineTo( 499-i, 101-(stats[i].population/((worldsize*worldsize)/15000)*100/2) );
 	sctx.strokeStyle = "rgb( 255, 0, 0 )"	
 	sctx.stroke();
 	

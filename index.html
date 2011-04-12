@@ -44,8 +44,16 @@
 							<td><input type="number" min="4" max="16" step="4" value="8" id="bsizebox"></td>
 						</tr>
 						<tr>
+							<td><label for="worldsizebox">Worldsize:</label></td>
+							<td><input type="number" min="100"  step="100" value="600" id="worldsizebox" onchange="worldsizechange(this)"></td>
+						</tr>
+						<tr>
 							<td><label for="foodratebox">Food respawn delay:</label></td>
-							<td><input type="number" min="5" max="50" value="10" id="foodratebox" onchange="foodratechange(this.value)"></td>
+							<td><input type="number" min="5" max="50" value="10" id="foodratebox" onchange="foodratechange(this)"></td>
+						</tr>
+						<tr>
+							<td><label for="foodareabox">Food respawn area:</label></td>
+							<td><input type="number" min="100" step="100" value="500" id="foodareabox" onchange="foodareachange(this)"></td>
 						</tr>
 					</table>
 				

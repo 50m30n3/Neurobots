@@ -11,7 +11,7 @@ function wheelzoom( event )
 	if( delta < 0 )
 		zoom *= 1.1;
 	else
-		zoom *= 0.9;
+		zoom /= 1.1;
 
 	if( zoom > 10.0 ) zoom = 10.0;
 	if( zoom < 0.25 ) zoom = 0.25;
@@ -185,10 +185,37 @@ function injectbrain()
 	}
 }
 
-function foodratechange( value )
+function foodratechange( box )
 {
-	if( ( value <= 50 ) && ( value >= 5 ) )
-		foodrate = value;
+	if( ( box.value <= 50 ) && ( box.value >= 5 ) )
+		foodrate = parseInt( box.value );
+}
+
+function foodareachange( box )
+{
+	if( box.value < 100 )
+		box.value = 100;
+
+	if( box.value > worldsize )
+		box.value = worldsize;
+
+	foodradius = parseInt( box.value );
+	
+	reset_food()
+}
+
+function worldsizechange( box )
+{
+	if( box.value < 100 )
+		box.value = 100;
+
+	worldsize = parseInt( box.value );
+
+	if( foodradius > worldsize )
+	{
+		foodradius = worldsize;
+		document.getElementById( "foodareabox" ).value = worldsize;
+	}
 }
 
 function refreshlist()

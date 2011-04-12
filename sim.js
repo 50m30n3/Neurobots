@@ -10,8 +10,8 @@ var food;
 var fooddelay;
 var foodrate;
 
-const worldsize = 600;
-const foodradius = 500;
+var worldsize = 600;
+var foodradius = 500;
 
 function draw()
 {
@@ -69,9 +69,9 @@ function loop()
 	}
 
 	if( bots.length < 5 )
-		bots.push( new neurobot( worldsize*2.0*(Math.random()-0.5), worldsize*2.0*(Math.random()-0.5), Math.PI*2*Math.random() ) );
+		reset_bots();
 
-	if( ( fooddelay <= 0 ) && ( food.length < 200 ) )
+	if( ( fooddelay <= 0 ) && ( food.length < (foodradius*foodradius)/2000 ) )
 	{
 		fooddelay = foodrate;
 
@@ -99,6 +99,26 @@ function loop()
 	}
 }
 
+function reset_bots()
+{
+	bots = [];
+	for( var i=0; i<(worldsize*worldsize)/15000; i++ )
+		bots.push( new neurobot( worldsize*2.0*(Math.random()-0.5), worldsize*2.0*(Math.random()-0.5), Math.PI*2*Math.random() ) );
+}
+
+function reset_food()
+{
+	food = [];
+	for( var i=0; i<(foodradius*foodradius)/2000; i++ )
+	{
+		var ang = Math.PI*2*Math.random();
+		var dist = Math.random();
+		dist = dist*foodradius;
+	
+		food.push( new plant( Math.cos(ang)*dist, Math.sin(ang)*dist, 150 ) );
+	}
+}
+
 function resetsim()
 {
 	selected = -1;
@@ -121,19 +141,9 @@ function resetsim()
 		return;
 	}
 
-	bots = [];
-	for( var i=0; i<25; i++ )
-		bots.push( new neurobot( worldsize*2.0*(Math.random()-0.5), worldsize*2.0*(Math.random()-0.5), Math.PI*2*Math.random() ) );
+	reset_bots();
 
-	food = [];
-	for( var i=0; i<200; i++ )
-	{
-		var ang = Math.PI*2*Math.random();
-		var dist = Math.random();
-		dist = dist*foodradius;
-	
-		food.push( new plant( Math.cos(ang)*dist, Math.sin(ang)*dist, 150 ) );
-	}
+	reset_food();
 
 	fooddelay = 0;
 	
