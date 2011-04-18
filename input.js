@@ -50,7 +50,7 @@ function winresize( event )
 	var container = document.getElementById( "container" );
 
 	var width = canvas.clientWidth;
-	var aspect = window.innerWidth/window.innerHeight;
+	var aspect = screen.width/screen.height;
 
 	canvas.width = width;
 	canvas.height = width/aspect;
