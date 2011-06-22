@@ -68,7 +68,7 @@ function loop()
 		}
 	}
 
-	if( bots.length < 5 )
+	if( bots.length <= 0 )
 		reset_bots();
 
 	if( ( fooddelay <= 0 ) && ( food.length < (foodradius*foodradius)/2000 ) )
