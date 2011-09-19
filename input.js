@@ -185,37 +185,55 @@ function injectbrain()
 	}
 }
 
+function bdepthchange( box )
+{
+	if( parseInt( box.value ) > 16 )
+		box.value = 16;
+
+	if( parseInt( box.value ) < 2 )
+		box.value = 2;
+}
+
+function bsizechange( box )
+{
+	if( parseInt( box.value ) > 16 )
+		box.value = 16;
+
+	if( parseInt( box.value ) < 4 )
+		box.value = 4;
+	
+	if( parseInt( box.value ) % 4 != 0 )
+		box.value = parseInt( box.value ) - (parseInt( box.value ) % 4);
+}
+
 function foodratechange( box )
 {
-	if( ( box.value <= 50 ) && ( box.value >= 5 ) )
+	if( parseInt( box.value ) > 50 )
+		box.value = 50;
+
+	if( parseInt( box.value ) < 5 )
+		box.value = 5;
+
+	if( ( parseInt( box.value ) ) && ( box.value <= 50 ) && ( box.value >= 5 ) )
 		foodrate = parseInt( box.value );
 }
 
 function foodareachange( box )
 {
-	if( box.value < 100 )
+	if( parseInt( box.value ) < 100 )
 		box.value = 100;
 
-	if( box.value > worldsize )
-		box.value = worldsize;
-
-	foodradius = parseInt( box.value );
-	
-	reset_food()
+	if( parseInt( box.value ) > parseInt( document.getElementById( "worldsizebox" ).value ) )
+		document.getElementById( "worldsizebox" ).value = parseInt( box.value );
 }
 
 function worldsizechange( box )
 {
-	if( box.value < 100 )
+	if( parseInt( box.value ) < 100 )
 		box.value = 100;
-
-	worldsize = parseInt( box.value );
-
-	if( foodradius > worldsize )
-	{
-		foodradius = worldsize;
-		document.getElementById( "foodareabox" ).value = worldsize;
-	}
+	
+	if( parseInt( box.value ) < parseInt( document.getElementById( "foodareabox" ).value ) )
+		document.getElementById( "foodareabox" ).value = parseInt( box.value );
 }
 
 function refreshlist()

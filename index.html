@@ -37,14 +37,14 @@
 					<table>
 						<tr>
 							<td><label for="bdepthbox" title="Number of layers in the neural network">Brain size:</label></td>
-							<td><input type="number" min="2" max="16" value="4" id="bdepthbox"></td>
+							<td><input type="number" min="2" max="16" value="4" id="bdepthbox" onchange="bdepthchange(this)"></td>
 						</tr>
 						<tr>
 							<td><label for="bsizebox" title="Number of neurons in each layer">Brain complexity:</label></td>
-							<td><input type="number" min="4" max="16" step="4" value="8" id="bsizebox"></td>
+							<td><input type="number" min="4" max="16" step="4" value="8" id="bsizebox" onchange="bsizechange(this)"></td>
 						</tr>
 						<tr>
-							<td><label for="worldsizebox">Worldsize:</label></td>
+							<td><label for="worldsizebox">World size:</label></td>
 							<td><input type="number" min="100"  step="100" value="600" id="worldsizebox" onchange="worldsizechange(this)"></td>
 						</tr>
 						<tr>
