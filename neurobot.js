@@ -338,7 +338,7 @@ function neurobot( x, y, rot, parent )
 		if( this.age >= 10000 )
 			this.alife = false;
 
-		this.foodlevel -= speed/2.5 + Math.abs( turnspeed/5.0 ) + 0.2;
+		this.foodlevel -= speed/2.0 + Math.abs( turnspeed/4.0 ) + 0.2;
 		if( this.foodlevel <= 0 )
 			this.alife = false;
 	}
