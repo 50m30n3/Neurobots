@@ -68,7 +68,7 @@ function neurobot( x, y, rot, parent )
 	{
 		this.braindepth = braindepth;
 		this.brainsize = brainsize;
-		this.mutationrate = Math.random()*Math.random();
+		this.mutationrate = 1-(Math.random()*Math.random());
 		this.generation = 0;
 		
 		this.color.r = Math.random()*255;
